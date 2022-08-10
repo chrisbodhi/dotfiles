@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: consolelog
+# uuid: 9c535a93-20ab-408e-a2c7-70cfa856c646
+# key: pp
+# condition: t
+# --
+
+console.log('~~~${1:string}', ${2:object})

@@ -4,11 +4,15 @@
 alias laptop='bash <(curl -s https://raw.githubusercontent.com/chrisbodhi/laptop/master/laptop)'
 
 # Replacements for built-ins
+alias ".."="cd .."
+alias "..."="cd ../.."
+alias "...."="cd ../../.."
 alias cat="bat"
 alias l="exa -l -a --git"
 
 # Git
 alias gc="git commit"
+alias gcam="git add . && git commit -m"
 alias gcb="git checkout -b"
 alias gco="git checkout"
 alias gcod="git checkout develop"
@@ -42,5 +46,6 @@ alias thyme_start="while true; do ~/thyme track -o ~/Desktop/thyme.json; sleep 3
 alias thyme_show="~/thyme show -i ~/Desktop/thyme.json -w stats > ~/Desktop/thyme.html"
 
 # Quality of life
-alias weather="curl -s wttr.in/15212"
+alias history="history 1"
 alias moon="curl -s wttr.in/moon"
+alias weather="curl -s wttr.in/15212"

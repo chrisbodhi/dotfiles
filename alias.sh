@@ -8,10 +8,16 @@ alias cat="bat"
 alias l="exa -l -a --git"
 
 # Git
-alias gs="git status"
-alias gcom="git checkout main"
+alias gc="git commit"
+alias gcb="git checkout -b"
+alias gco="git checkout"
 alias gcod="git checkout develop"
+alias gcom="git checkout main"
+alias gd="git diff"
+alias ggpull='git pull origin "$(git_current_branch)"'
+alias ggpush='git push origin "$(git_current_branch)"'
 alias gprco="gh pr checkout"
+alias gs="git status"
 alias skunk="git branch | grep -e '^\s\syo'"
 
 # Quick scripts

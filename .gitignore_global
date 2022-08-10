@@ -1,0 +1,7 @@
+*~
+*.rdb
+.DS_Store
+node_modules/
+
+# Ignore temp files created by emacs
+.\#*

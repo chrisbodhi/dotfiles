@@ -11,12 +11,13 @@ alias cat="bat"
 alias l="exa -l -a --git"
 
 # Git
-alias gc="git commit"
-alias gcam="git add . && git commit -m"
+alias gc="git commit -v"
+alias gcam="git commit -a -m"
 alias gcb="git checkout -b"
 alias gco="git checkout"
 alias gcod="git checkout develop"
 alias gcom="git checkout main"
+alias gcp="git cherry-pick"
 alias gd="git diff"
 alias ggpull='git pull origin "$(git_current_branch)"'
 alias ggpush='git push origin "$(git_current_branch)"'

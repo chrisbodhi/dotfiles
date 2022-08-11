@@ -11,6 +11,7 @@ alias cat="bat"
 alias l="exa -l -a --git"
 
 # Git
+alias ga="git add"
 alias gc="git commit -v"
 alias gcam="git commit -a -m"
 alias gcb="git checkout -b"

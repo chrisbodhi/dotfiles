@@ -20,6 +20,7 @@ alias gcod="git checkout develop"
 alias gcom="git checkout main"
 alias gcp="git cherry-pick"
 alias gd="git diff"
+alias gg="git grep"
 alias ggpull='git pull origin "$(git_current_branch)"'
 alias ggpush='git push origin "$(git_current_branch)"'
 alias gprco="gh pr checkout"

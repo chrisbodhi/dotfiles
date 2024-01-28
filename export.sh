@@ -9,6 +9,7 @@ export DW_PROJECT_HOME="$HOME/code"
 export WORKON_HOME="$HOME/.virtualenvs"
 export CICD_SCRIPTS="$DW_PROJECT_HOME/build-scripts/cicd"
 export JAVA_HOME=$(/usr/libexec/java_home -v 11)
+export NVM_DIR="$HOME/.nvm"
 
 export PLAN9=/usr/local/plan9
 export PATH=$PATH:$PLAN9/bin

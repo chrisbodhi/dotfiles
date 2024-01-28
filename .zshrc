@@ -9,7 +9,7 @@ COMPLETION_WAITING_DOTS="true"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-HIST_STAMPS="mm/dd/yyyy"
+# HIST_STAMPS="mm/dd/yyyy"
 
 # Adapted from https://gist.github.com/matthewmccullough/787142
 HISTSIZE=99999              # How many lines of history to keep in memory

@@ -1,5 +1,5 @@
 [user]
-	email = chris.boette@data.world
+	email = cboette@gmail.com
 	name = chrisbodhi
 [github]
 	user = chrisbodhi
@@ -7,10 +7,10 @@
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	migrate-to-main = "!m() { git branch -m master main && git fetch origin && git branch -u origin/main main && git remote set-head origin -a ;}; m"
 [core]
-	excludesfile = /Users/chrisboette/.gitignore_global
+	excludesfile = $HOME/.gitignore_global
 	pager = diff-so-fancy | less --tabs=4 -RFX
 [commit]
-	template = /Users/chrisboette/.gitmessage
+	template = $HOME/.gitmessage
 [color]
 	ui = true
 [color "diff-highlight"]

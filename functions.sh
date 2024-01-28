@@ -13,6 +13,15 @@ git_current_branch () {
 	echo ${ref#refs/heads/}
 }
 
+gh_browse () {
+	gh browse -b $(git_current_branch)	
+}
+
+tag_em () {
+	export TAG=$(git branch --show-current)-$(date -u '+%Y%m%d%H%M%S')-buildartifacts
+	git tag "${TAG}" && git push origin "${TAG}"
+}
+
 # note, using (, not { to invoke a subshells where I can set errexit and pipefail
 function encrypt_secret() (
 	set -o errexit -o pipefail
@@ -30,6 +39,7 @@ function encrypt_secret() (
     done
     aws kms encrypt --profile ${1} --key-id ${KMS_KEY_PREFIX}${2} --region ${3} --plaintext fileb://<(printf "${plaintext}") --query CiphertextBlob --output text
 )
+
 function encrypt_app_secret() (
 	if [[ -z ${1} || -z ${2} || -z ${3} ]]; then
         (>&2 echo "Must pass account, app and region to encrypt a secret")
@@ -37,6 +47,7 @@ function encrypt_app_secret() (
     fi
     KMS_KEY_PREFIX='alias/secrets/' encrypt_secret ${1} ${2} ${3}
 )
+
 function decrypt_secret() (
     set -o errexit -o pipefail
     if [[ -z ${1} || -z ${2} ]]; then

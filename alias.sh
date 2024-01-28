@@ -50,5 +50,7 @@ alias thyme_show="~/thyme show -i ~/Desktop/thyme.json -w stats > ~/Desktop/thym
 
 # Quality of life
 alias history="history 1"
+alias md="mkdir -p"
 alias moon="curl -s wttr.in/moon"
-alias weather="curl -s wttr.in/15212"
+alias tf="terraform"
+alias weather="curl -s wttr.in/PGH"

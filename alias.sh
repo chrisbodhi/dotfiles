@@ -8,7 +8,7 @@ alias ".."="cd .."
 alias "..."="cd ../.."
 alias "...."="cd ../../.."
 alias cat="bat"
-alias l="exa -l -a --git"
+alias l="eza -l -a --git"
 
 # Git
 alias ga="git add"

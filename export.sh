@@ -15,3 +15,6 @@ export PLAN9=/usr/local/plan9
 export PATH=$PATH:$PLAN9/bin
 
 export PATH="$HOME/.bin:$DW_PROJECT_HOME/dev-tools/bin:$CICD_SCRIPTS:$HOME/.emacs.d/bin:$HOME/go/bin:$PATH"
+
+# Much better visibility for usage in Ghostty
+export BAT_THEME="base16"

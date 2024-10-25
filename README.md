@@ -1,6 +1,6 @@
 # dotfiles
 
-For git, zsh, and Doom Emacs.
+For Nix, git, zsh, and Doom Emacs.
 
 I imagine I'm committing a small heresy by not tracking my emacs config separately, but here we are.
 
@@ -12,13 +12,13 @@ Clone the repo, and sync it to the home directory with the following commands
 # From inside this cloned directory
 
 # .zshrc, .vimrc
-for file in .*rc; do 
+for file in .*rc; do
   ln -s "$file" "$HOME/$file"
 done
 
 # git setup
 # This will also sync the git directory...
-for file in .git*; do 
+for file in .git*; do
   ln -s "$file" "$HOME/$file"
 done
 
@@ -29,8 +29,10 @@ for file in *.sh; do
   ln -s "$file" "$HOME/$file"
 done
 
-exec zsh
+mkdir -p "$HOME/.config/nix"
+for file in nix/darwin/*; do
+    ln -s "$file" "$HOME/.config/nix/"
+done
 
-chmod +x $HOME/brew-setup.sh
-./$HOME/brew-setup.sh
+exec zsh
 ```

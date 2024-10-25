@@ -21,20 +21,22 @@
             [
                 pkgs.bat
                 pkgs.bun
+                pkgs.coreutils
+                pkgs.diff-so-fancy
                 pkgs.eza
                 pkgs.fd
-                pkgs.fira
                 pkgs.fzf
                 pkgs.gh
                 pkgs.jq
                 pkgs.mkalias
                 pkgs.procs
                 pkgs.pyenv
-                pkgs.raycast
                 pkgs.ripgrep
                 pkgs.tailscale
                 pkgs.tldr
                 pkgs.zed-editor
+                # pkgs.zsh-autosuggestions
+                # pkgs.zsh-syntax-highlighting
             ];
 
         fonts.packages =

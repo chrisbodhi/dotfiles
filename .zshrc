@@ -28,5 +28,3 @@ source $HOME/alias.sh
 source $HOME/export.sh
 source $HOME/functions.sh
 source $HOME/source.sh
-
-eval "$(starship init zsh)"

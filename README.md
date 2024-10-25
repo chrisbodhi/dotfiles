@@ -17,8 +17,7 @@ for file in .*rc; do
 done
 
 # git setup
-# This will also sync the git directory...
-for file in .git*; do
+files=('.gitconfig' ".gitignore_global" ".gitmessage"); for f in $files; do
   ln -s "$file" "$HOME/$file"
 done
 
@@ -29,6 +28,7 @@ for file in *.sh; do
   ln -s "$file" "$HOME/$file"
 done
 
+# Nix setup
 mkdir -p "$HOME/.config/nix"
 for file in nix/darwin/*; do
     ln -s "$file" "$HOME/.config/nix/"

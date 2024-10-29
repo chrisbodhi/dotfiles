@@ -12,13 +12,14 @@
   let
     configuration = { pkgs, config, ... }: {
         # To install packages that are not open source:
-        # nixpkgs.config.allowUnfree = true;
+        nixpkgs.config.allowUnfree = true;
 
         # List packages installed in system profile. To search by name, run:
         # $ nix-env -qaP | grep wget
         # Or check online: https://search.nixos.org
         environment.systemPackages =
             [
+                pkgs.arc-browser
                 pkgs.bat
                 pkgs.bun
                 pkgs.coreutils
@@ -29,21 +30,20 @@
                 pkgs.gh
                 pkgs.jq
                 pkgs.mkalias
+                pkgs.ollama
                 pkgs.procs
                 pkgs.pyenv
                 pkgs.ripgrep
                 pkgs.tailscale
                 pkgs.tldr
-                pkgs.zed-editor
                 # pkgs.zsh-autosuggestions
                 # pkgs.zsh-syntax-highlighting
             ];
 
-        fonts.packages =
-            [
+        fonts.packages = [
                 pkgs.fira
-                pkgs.gofonts
-            ];
+                pkgs.go-font
+        ];
 
         homebrew = {
             enable = true;
@@ -51,18 +51,20 @@
                 "mas" # Mac App Store CLI: mas search Xcode for finding the App Store IDs used below
             ];
             # Add strings to the list to install Casks (GUI apps)
-            casks = [];
+            casks = [
+                # "arc" # cannot install from nix, for some reason
+                "zed" # nix pkg is broken
+            ];
             # For Mac App Store installations
             masApps = {
                 "Amazon Kindle" = 302584613;
                 "ToyViewer" = 414298354;
-                "Yoink" = 457622435;
                 "Xcode" = 497799835;
             };
             onActivation.cleanup = "zap";
             onActivation.autoUpdate = true;
             onActivation.upgrade = true;
-        }
+        };
 
         system.activationScripts.applications.text = let
             env = pkgs.buildEnv {
@@ -70,22 +72,31 @@
                 paths = config.environment.systemPackages;
                 pathsToLink = "/Applications";
             };
-        in
+          in
             pkgs.lib.mkForce ''
                 # Set up applications
                 echo "Setting up applications..." >&2
                 rm -rf /Applications/Nix\ Apps
                 mkdir -p /Applications/Nix\ Apps
-                find ${env}/Applications -maxdepth 1 -tyle l -exec readlink '{}' + |
+                find ${env}/Applications -maxdepth 1 -type l -exec readlink '{}' + |
                 while read src; do
                     app_name=$(basename "$src")
-                    echo "Copying $src" >&2
+                    echo "!!Copying $src" >&2
                     ${pkgs.mkalias}/bin/mkalias "$src" "/Applications/Nix Apps/$app_name"
                 done
             '';
 
-        # TODO: set 1.1.1.1 for DNS
-        # TODO: map caps lock to control key
+        networking = {
+            dns = [
+                "1.1.1.1"
+                "1.0.0.1"
+            ];
+            knownNetworkServices = ["Wi-Fi"];
+            # networkServices.*.dns = [ "1.1.1.1", "1.0.0.1" ];
+        };
+
+        system.keyboard.enableKeyMapping = true;
+        system.keyboard.remapCapsLockToControl = true;
         # TODO: set up keyboard shortcuts for window management
 
         # Auto upgrade nix package and the daemon service.
@@ -135,14 +146,5 @@
         # Expose the package set, including overlays, for convenience.
         darwinPackages = self.darwinConfigurations."ddw".pkgs;
 
-        local = {
-            dock.enable = false;
-            dock.entries = [
-                { path = "/System/Applications/Freeform.app"; }
-                { path = "/System/Applications/Notes.app"; }
-                { path = "/System/Applications/Mail.app"; }
-                { path = "/System/Applications/Music.app/"; }
-            ]
-        }
     };
 }

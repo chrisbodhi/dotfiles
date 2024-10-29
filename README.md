@@ -17,22 +17,22 @@ for file in .*rc; do
 done
 
 # git setup
-files=('.gitconfig' ".gitignore_global" ".gitmessage"); for f in $files; do
+files=('.gitconfig' ".gitignore_global" ".gitmessage"); for file in $files; do
   ln -s "$file" "$HOME/$file"
 done
-
-# ...which we delete here.
-rm $HOME/.git
 
 for file in *.sh; do
   ln -s "$file" "$HOME/$file"
 done
 
 # Nix setup
-mkdir -p "$HOME/.config/nix"
+mkdir -p "$HOME/.config/nix-darwin"
 for file in nix/darwin/*; do
-    ln -s "$file" "$HOME/.config/nix/"
+    ln -s "$file" "$HOME/.config/nix-darwin"
 done
+
+# Rebuild nix after making changes
+darwin-rebuild switch --flake ~/.config/nix-darwin#ddw
 
 exec zsh
 ```

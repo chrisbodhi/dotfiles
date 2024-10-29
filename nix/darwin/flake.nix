@@ -61,6 +61,9 @@
                 "ToyViewer" = 414298354;
                 "Xcode" = 497799835;
             };
+            taps = {
+                "railwaycat/homebrew-emacsmacport" = "emacs-mac";
+            };
             onActivation.cleanup = "zap";
             onActivation.autoUpdate = true;
             onActivation.upgrade = true;

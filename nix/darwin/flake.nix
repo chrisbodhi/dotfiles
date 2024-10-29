@@ -36,8 +36,8 @@
                 pkgs.ripgrep
                 pkgs.tailscale
                 pkgs.tldr
-                # pkgs.zsh-autosuggestions
-                # pkgs.zsh-syntax-highlighting
+                pkgs.zsh-autosuggestions
+                pkgs.zsh-syntax-highlighting
             ];
 
         fonts.packages = [
@@ -48,11 +48,11 @@
         homebrew = {
             enable = true;
             brews = [
+                "emacs-mac --with-modules"
                 "mas" # Mac App Store CLI: mas search Xcode for finding the App Store IDs used below
             ];
             # Add strings to the list to install Casks (GUI apps)
             casks = [
-                # "arc" # cannot install from nix, for some reason
                 "zed" # nix pkg is broken
             ];
             # For Mac App Store installations

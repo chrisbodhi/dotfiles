@@ -1,5 +1,9 @@
 # Zsh-related
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export ZSH_AUTOSUGGESTIONS_PATH=$(nix build --no-link nixpkgs#zsh-autosuggestions --print-out-paths)
+source "$ZSH_AUTOSUGGESTIONS_PATH/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+
+export ZSH_SYNTAX_HIGHLIGHTING_PATH=$(nix build --no-link nixpkgs#zsh-syntax-highlighting --print-out-paths)
+source "$ZSH_SYNTAX_HIGHLIGHTING_PATH/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # This loads nvm
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
@@ -8,10 +12,6 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"

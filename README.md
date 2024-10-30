@@ -17,8 +17,8 @@ for file in .*rc; do
 done
 
 # git setup
-files=('.gitconfig' ".gitignore_global" ".gitmessage"); for file in $files; do
-  ln -s "$file" "$HOME/$file"
+files=(".gitconfig" ".gitignore_global" ".gitmessage"); for file in $files; do
+  cp "$file" "$HOME/$file"
 done
 
 for file in *.sh; do

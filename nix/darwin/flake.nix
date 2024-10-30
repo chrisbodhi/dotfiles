@@ -34,7 +34,6 @@
                 pkgs.procs
                 pkgs.pyenv
                 pkgs.ripgrep
-                pkgs.tailscale
                 pkgs.tldr
                 pkgs.zsh-autosuggestions
                 pkgs.zsh-syntax-highlighting
@@ -48,7 +47,7 @@
         homebrew = {
             enable = true;
             brews = [
-                "emacs-mac --with-modules"
+                # "emacs-mac --with-modules"
                 "mas" # Mac App Store CLI: mas search Xcode for finding the App Store IDs used below
             ];
             # Add strings to the list to install Casks (GUI apps)
@@ -58,12 +57,13 @@
             # For Mac App Store installations
             masApps = {
                 "Amazon Kindle" = 302584613;
+                "Tailscale" = 1475387142;
                 "ToyViewer" = 414298354;
                 "Xcode" = 497799835;
             };
-            taps = {
-                "railwaycat/homebrew-emacsmacport" = "emacs-mac";
-            };
+            # taps = {
+            #     "railwaycat/homebrew-emacsmacport" = "emacs-mac";
+            # };
             onActivation.cleanup = "zap";
             onActivation.autoUpdate = true;
             onActivation.upgrade = true;
@@ -100,6 +100,9 @@
 
         system.keyboard.enableKeyMapping = true;
         system.keyboard.remapCapsLockToControl = true;
+
+        # Dock
+        system.defaults.dock.autohide = true;
         # TODO: set up keyboard shortcuts for window management
 
         # Auto upgrade nix package and the daemon service.

@@ -27,7 +27,7 @@ done
 
 # Nix setup
 mkdir -p "$HOME/.config/nix-darwin"
-for file in nix/darwin/*; do
+for file in nix-darwin/*; do
     ln -s "$file" "$HOME/.config/nix-darwin"
 done
 

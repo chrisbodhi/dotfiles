@@ -13,26 +13,32 @@ Clone the repo, and sync it to the home directory with the following commands
 
 # .zshrc, .vimrc
 for file in .*rc; do
-  ln -s "$file" "$HOME/$file"
+  ln -s "$(pwd)/$file" "$HOME/$file"
 done
 
 # git setup
 files=(".gitconfig" ".gitignore_global" ".gitmessage"); for file in $files; do
-  cp "$file" "$HOME/$file"
+  ln -s "$(pwd)/$file" "$HOME/$file"
 done
 
 for file in *.sh; do
-  ln -s "$file" "$HOME/$file"
+  ln -s "$(pwd)/$file" "$HOME/$file"
 done
 
 # Nix setup
 mkdir -p "$HOME/.config/nix-darwin"
 for file in nix-darwin/*; do
-    ln -s "$file" "$HOME/.config/nix-darwin"
+    ln -s "$file" "$HOME/.config/nix-darwin/$file"
 done
 
+# Install Nix
+sh <(curl -L https://nixos.org/nix/install)
+
+# Install nix-darwin
+nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake ~/.config/nix-darwin#max
+
 # Rebuild nix after making changes
-darwin-rebuild switch --flake ~/.config/nix-darwin#ddw
+darwin-rebuild switch --flake ~/.config/nix-darwin#max
 
 exec zsh
 ```

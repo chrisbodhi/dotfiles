@@ -82,7 +82,7 @@
                 rm -rf /Applications/Nix\ Apps
                 mkdir -p /Applications/Nix\ Apps
                 find ${env}/Applications -maxdepth 1 -type l -exec readlink '{}' + |
-                while read src; do
+                while read -r src; do
                     app_name=$(basename "$src")
                     echo "!!Copying $src" >&2
                     ${pkgs.mkalias}/bin/mkalias "$src" "/Applications/Nix Apps/$app_name"
@@ -103,6 +103,8 @@
 
         # Dock
         system.defaults.dock.autohide = true;
+        # Fix scrolling direction so it is not natural
+        system.defaults.NSGlobalDomain."com.apple.swipescrolldirection" = false;
         # TODO: set up keyboard shortcuts for window management
 
         # Auto upgrade nix package and the daemon service.
@@ -128,12 +130,8 @@
     in
     {
         # Build darwin flake using:
-        # Work:
-        # $ darwin-rebuild build --flake .#ddw
-        # Personal:
         # $ darwin-rebuild build --flake .#max
-        # Could add another pair of configurations after these, to target a different system.
-        darwinConfigurations."ddw" = nix-darwin.lib.darwinSystem {
+        darwinConfigurations."max" = nix-darwin.lib.darwinSystem {
             modules = [
                 configuration
                 nix-homebrew.darwinModules.nix-homebrew
@@ -141,16 +139,14 @@
                     nix-homebrew = {
                         enable = true;
                         enableRosetta = true;
-                        user = "boette";
-                        # If Homebrew is already installed:
-                        # autoMigrate = true;
+                        user = "b";
                     };
                 }
             ];
         };
 
         # Expose the package set, including overlays, for convenience.
-        darwinPackages = self.darwinConfigurations."ddw".pkgs;
+        darwinPackages = self.darwinConfigurations."max".pkgs;
 
     };
 }

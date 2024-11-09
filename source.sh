@@ -17,3 +17,6 @@ if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 autoload -U +X bashcompinit && bashcompinit
+
+# fzf setup
+source <(fzf --zsh)

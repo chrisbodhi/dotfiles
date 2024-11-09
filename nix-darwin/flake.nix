@@ -29,6 +29,7 @@
                 pkgs.fzf
                 pkgs.gh
                 pkgs.jq
+                pkgs.meslo-lgs-nf
                 pkgs.mkalias
                 pkgs.ollama
                 pkgs.procs
@@ -36,6 +37,7 @@
                 pkgs.ripgrep
                 pkgs.tldr
                 pkgs.zsh-autosuggestions
+                pkgs.zsh-powerlevel10k
                 pkgs.zsh-syntax-highlighting
             ];
 
@@ -95,7 +97,6 @@
                 "1.0.0.1"
             ];
             knownNetworkServices = ["Wi-Fi"];
-            # networkServices.*.dns = [ "1.1.1.1", "1.0.0.1" ];
         };
 
         system.keyboard.enableKeyMapping = true;

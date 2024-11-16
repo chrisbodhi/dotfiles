@@ -24,6 +24,7 @@
                 pkgs.bun
                 pkgs.coreutils
                 pkgs.diff-so-fancy
+                pkgs.discord
                 pkgs.eza
                 pkgs.fd
                 pkgs.fzf

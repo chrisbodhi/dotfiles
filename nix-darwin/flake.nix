@@ -56,6 +56,8 @@
             ];
             # Add strings to the list to install Casks (GUI apps)
             casks = [
+                "backblaze"
+                "font-zed-mono-nerd-font"
                 "zed" # nix pkg is broken
             ];
             # For Mac App Store installations

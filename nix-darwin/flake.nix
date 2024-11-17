@@ -37,8 +37,8 @@
                 pkgs.pyenv
                 pkgs.ripgrep
                 pkgs.tldr
+                pkgs.tree
                 pkgs.zsh-autosuggestions
-                pkgs.zsh-powerlevel10k
                 pkgs.zsh-syntax-highlighting
             ];
 
@@ -52,6 +52,7 @@
             brews = [
                 # "emacs-mac --with-modules"
                 "mas" # Mac App Store CLI: mas search Xcode for finding the App Store IDs used below
+                "powerlevel10k" # Broken in Nix?
             ];
             # Add strings to the list to install Casks (GUI apps)
             casks = [

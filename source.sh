@@ -1,3 +1,5 @@
+source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
+
 # Zsh-related
 export ZSH_AUTOSUGGESTIONS_PATH=$(nix build --no-link nixpkgs#zsh-autosuggestions --print-out-paths)
 source "$ZSH_AUTOSUGGESTIONS_PATH/share/zsh-autosuggestions/zsh-autosuggestions.zsh"

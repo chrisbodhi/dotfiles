@@ -9,7 +9,7 @@ fi
 # zmodload zsh/zprof
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
 # History
 

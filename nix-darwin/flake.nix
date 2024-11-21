@@ -110,7 +110,10 @@
         system.defaults.dock.autohide = true;
         # Fix scrolling direction so it is not natural
         system.defaults.NSGlobalDomain."com.apple.swipescrolldirection" = false;
-        # TODO: set up keyboard shortcuts for window management
+
+        # Allow TouchID for terminal auth
+        # Must run after each reboot
+        security.pam.enableSudoTouchIdAuth = true;
 
         # Auto upgrade nix package and the daemon service.
         services.nix-daemon.enable = true;

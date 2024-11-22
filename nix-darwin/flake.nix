@@ -65,6 +65,7 @@
                 "Amazon Kindle" = 302584613;
                 "Tailscale" = 1475387142;
                 "ToyViewer" = 414298354;
+                "UTC Time" = 1538245904;
                 "Xcode" = 497799835;
             };
             # taps = {

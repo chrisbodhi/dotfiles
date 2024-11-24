@@ -32,6 +32,8 @@
                 pkgs.jq
                 pkgs.meslo-lgs-nf
                 pkgs.mkalias
+                pkgs.nil # to get the nix daemon working for Zed's nix support
+                pkgs.nixd # to get the nix daemon working for Zed's nix support
                 pkgs.ollama
                 pkgs.procs
                 pkgs.pyenv

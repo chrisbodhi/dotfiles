@@ -37,6 +37,7 @@
                 pkgs.ollama
                 pkgs.procs
                 pkgs.pyenv
+                pkgs.raycast
                 pkgs.ripgrep
                 pkgs.tldr
                 pkgs.tree

@@ -9,7 +9,7 @@ fi
 # zmodload zsh/zprof
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
 # History
 
@@ -31,6 +31,7 @@ setopt    incappendhistory  #Immediately append to the history file, not just wh
 
 # env vars
 # source ~/.env-vars
+source $HOME/keys.sh
 source $HOME/alias.sh
 source $HOME/export.sh
 source $HOME/functions.sh

@@ -24,6 +24,7 @@
                 pkgs.bun
                 pkgs.coreutils
                 pkgs.diff-so-fancy
+                pkgs.discord
                 pkgs.eza
                 pkgs.fd
                 pkgs.fzf
@@ -31,13 +32,16 @@
                 pkgs.jq
                 pkgs.meslo-lgs-nf
                 pkgs.mkalias
+                pkgs.nil # to get the nix daemon working for Zed's nix support
+                pkgs.nixd # to get the nix daemon working for Zed's nix support
                 pkgs.ollama
                 pkgs.procs
                 pkgs.pyenv
+                pkgs.raycast
                 pkgs.ripgrep
                 pkgs.tldr
+                pkgs.tree
                 pkgs.zsh-autosuggestions
-                pkgs.zsh-powerlevel10k
                 pkgs.zsh-syntax-highlighting
             ];
 
@@ -51,9 +55,13 @@
             brews = [
                 # "emacs-mac --with-modules"
                 "mas" # Mac App Store CLI: mas search Xcode for finding the App Store IDs used below
+                "powerlevel10k" # Broken in Nix?
             ];
             # Add strings to the list to install Casks (GUI apps)
             casks = [
+                "backblaze"
+                "claude"
+                "font-zed-mono-nerd-font"
                 "zed" # nix pkg is broken
             ];
             # For Mac App Store installations
@@ -61,6 +69,7 @@
                 "Amazon Kindle" = 302584613;
                 "Tailscale" = 1475387142;
                 "ToyViewer" = 414298354;
+                "UTC Time" = 1538245904;
                 "Xcode" = 497799835;
             };
             # taps = {
@@ -106,7 +115,10 @@
         system.defaults.dock.autohide = true;
         # Fix scrolling direction so it is not natural
         system.defaults.NSGlobalDomain."com.apple.swipescrolldirection" = false;
-        # TODO: set up keyboard shortcuts for window management
+
+        # Allow TouchID for terminal auth
+        # Must run after each reboot
+        security.pam.enableSudoTouchIdAuth = true;
 
         # Auto upgrade nix package and the daemon service.
         services.nix-daemon.enable = true;

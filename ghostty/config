@@ -6,3 +6,5 @@ macos-titlebar-style = tabs
 macos-option-as-alt = true
 keybind = alt+left=esc:b
 keybind = alt+right=esc:f
+copy-on-select = true
+

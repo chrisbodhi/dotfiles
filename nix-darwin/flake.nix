@@ -143,8 +143,8 @@
     };
     in
     {
-        # Build darwin flake using:
-        # $ darwin-rebuild build --flake .#max
+        # Build and switch to new Darwin flake:
+        # $ darwin-rebuild switch --flake ~/.config/nix-darwin#max
         darwinConfigurations."max" = nix-darwin.lib.darwinSystem {
             modules = [
                 configuration

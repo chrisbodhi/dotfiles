@@ -60,6 +60,7 @@
             # Add strings to the list to install Casks (GUI apps)
             casks = [
                 "backblaze"
+                "chatgpt"
                 "claude"
                 "font-zed-mono-nerd-font"
                 "zed" # nix pkg is broken

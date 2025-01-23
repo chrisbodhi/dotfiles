@@ -30,6 +30,7 @@
                 pkgs.fzf
                 pkgs.gh
                 pkgs.jq
+                pkgs.lmstudio
                 pkgs.meslo-lgs-nf
                 pkgs.mkalias
                 pkgs.nil # to get the nix daemon working for Zed's nix support

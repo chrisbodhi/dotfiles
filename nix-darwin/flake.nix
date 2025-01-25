@@ -30,7 +30,7 @@
                 pkgs.fzf
                 pkgs.gh
                 pkgs.jq
-                pkgs.lmstudio
+                pkgs.libdvdcss
                 pkgs.meslo-lgs-nf
                 pkgs.mkalias
                 pkgs.nil # to get the nix daemon working for Zed's nix support
@@ -65,6 +65,7 @@
                 "claude"
                 "font-zed-mono-nerd-font"
                 "handbrake" # nix pkg is broken
+                "lm-studio" # nix pkg is broken
                 "zed" # nix pkg is broken
             ];
             # For Mac App Store installations

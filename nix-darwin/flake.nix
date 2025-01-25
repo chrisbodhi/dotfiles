@@ -64,6 +64,7 @@
                 "chatgpt"
                 "claude"
                 "font-zed-mono-nerd-font"
+                "handbrake" # nix pkg is broken
                 "zed" # nix pkg is broken
             ];
             # For Mac App Store installations

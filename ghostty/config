@@ -1,6 +1,6 @@
 font-size = 18
 font-family = ZedMono Nerd Font
-background-opacity = 0.85
+background-opacity = 0.95
 background-blur-radius = 20
 macos-titlebar-style = tabs
 macos-option-as-alt = true
@@ -8,3 +8,12 @@ keybind = alt+left=esc:b
 keybind = alt+right=esc:f
 copy-on-select = true
 
+keybind = shift+home=scroll_to_top
+keybind = shift+end=scroll_to_bottom
+keybind = shift+page_up=scroll_page_up
+keybind = shift+page_down=scroll_page_down
+
+# square corners
+macos-titlebar-style=native
+window-decoration=false
+macos-window-shadow=false

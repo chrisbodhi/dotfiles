@@ -26,6 +26,7 @@
                 pkgs.diff-so-fancy
                 pkgs.discord
                 pkgs.eza
+                pkgs.fastfetch
                 pkgs.fd
                 pkgs.fzf
                 pkgs.gh

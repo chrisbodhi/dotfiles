@@ -21,7 +21,6 @@
             [
                 pkgs.arc-browser
                 pkgs.bat
-                pkgs.bun
                 pkgs.coreutils
                 pkgs.diff-so-fancy
                 pkgs.discord

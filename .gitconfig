@@ -6,6 +6,7 @@
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	migrate-to-main = "!m() { git branch -m master main && git fetch origin && git branch -u origin/main main && git remote set-head origin -a ;}; m"
+	recent = branch --sort=-committerdate -v
 [core]
 	excludesfile = $HOME/.gitignore_global
 	pager = diff-so-fancy | less --tabs=4 -RFX

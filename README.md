@@ -1,6 +1,6 @@
 # dotfiles
 
-For Nix, git, zsh, and Doom Emacs.
+For Nix, git, zsh, Claude Code, and Doom Emacs.
 
 I imagine I'm committing a small heresy by not tracking my emacs config separately, but here we are.
 
@@ -24,6 +24,9 @@ done
 for file in *.sh; do
   ln -s "$(pwd)/$file" "$HOME/$file"
 done
+
+mkdir -p "$HOME/.claude"
+ln -s "$(pwd)/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
 
 # Nix setup
 mkdir -p "$HOME/.config/nix-darwin"

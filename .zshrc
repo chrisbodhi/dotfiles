@@ -33,6 +33,7 @@ setopt    incappendhistory  #Immediately append to the history file, not just wh
 # source ~/.env-vars
 source $HOME/keys.sh
 source $HOME/alias.sh
+source $HOME/completions.sh
 source $HOME/export.sh
 source $HOME/functions.sh
 source $HOME/source.sh

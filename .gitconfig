@@ -34,3 +34,5 @@
 	prune = true
 [pull]
 	rebase = false
+[init]
+	defaultBranch = trunk

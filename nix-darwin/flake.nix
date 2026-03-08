@@ -19,7 +19,6 @@
         # Or check online: https://search.nixos.org
         environment.systemPackages =
             [
-                pkgs.arc-browser
                 pkgs.bat
                 pkgs.coreutils
                 pkgs.diff-so-fancy
@@ -35,13 +34,18 @@
                 pkgs.mkalias
                 pkgs.nil # to get the nix daemon working for Zed's nix support
                 pkgs.nixd # to get the nix daemon working for Zed's nix support
+                pkgs.nodejs_22
+                pkgs.obsidian
                 pkgs.ollama
                 pkgs.procs
                 pkgs.pyenv
                 pkgs.raycast
                 pkgs.ripgrep
                 pkgs.tldr
+                pkgs.tmux
                 pkgs.tree
+                pkgs.xbar
+                pkgs.zola
                 pkgs.zsh-autosuggestions
                 pkgs.zsh-syntax-highlighting
             ];
@@ -55,8 +59,10 @@
             enable = true;
             brews = [
                 # "emacs-mac --with-modules"
+                "ffmpeg"
                 "mas" # Mac App Store CLI: mas search Xcode for finding the App Store IDs used below
                 "powerlevel10k" # Broken in Nix?
+                "yt-dlp"
             ];
             # Add strings to the list to install Casks (GUI apps)
             casks = [
@@ -64,25 +70,29 @@
                 "chatgpt"
                 "claude"
                 "font-zed-mono-nerd-font"
-                "handbrake" # nix pkg is broken
+                "handbrake-app" # nix pkg is broken
                 "lm-studio" # nix pkg is broken
                 "zed" # nix pkg is broken
             ];
             # For Mac App Store installations
             masApps = {
                 "Amazon Kindle" = 302584613;
+                "Elmedia Video Player" = 1044549675;
                 "Tailscale" = 1475387142;
                 "ToyViewer" = 414298354;
                 "UTC Time" = 1538245904;
                 "Xcode" = 497799835;
             };
             # taps = {
-            #     "railwaycat/homebrew-emacsmacport" = "emacs-mac";
+                # "railwaycat/homebrew-emacsmacport" = "emacs-mac";
+                # builtins.attrNames = config.nix-homebrew.taps;
             # };
-            onActivation.cleanup = "zap";
+            # onActivation.cleanup = "zap";
             onActivation.autoUpdate = true;
             onActivation.upgrade = true;
         };
+
+        system.primaryUser = "b";
 
         system.activationScripts.applications.text = let
             env = pkgs.buildEnv {
@@ -122,7 +132,7 @@
 
         # Allow TouchID for terminal auth
         # Must run after each reboot
-        security.pam.enableSudoTouchIdAuth = true;
+        security.pam.services.sudo_local.touchIdAuth = true;
 
         # Auto upgrade nix package and the daemon service.
         nix.enable = true;

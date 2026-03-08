@@ -45,3 +45,21 @@ darwin-rebuild switch --flake ~/.config/nix-darwin#max
 
 exec zsh
 ```
+
+## Upgrading Packages
+
+To upgrade packages managed by nix-darwin (like GitHub CLI):
+
+```sh
+# Update flake inputs to get the latest package versions
+cd ~/.config/nix-darwin
+nix flake update
+
+# Or update just the nixpkgs input (still updates all packages from nixpkgs)
+nix flake update nixpkgs
+
+# Rebuild to apply the updates
+darwin-rebuild switch --flake ~/.config/nix-darwin#max
+```
+
+Note: You can selectively update flake inputs (like `nixpkgs`, `nix-darwin`, or `nix-homebrew`), but you cannot update individual packages within nixpkgs. Updating `nixpkgs` will update all packages in `environment.systemPackages`.

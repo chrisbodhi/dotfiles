@@ -32,6 +32,10 @@
 	helper = osxkeychain
 [fetch]
 	prune = true
+[remote "origin"]
+	fetch = +refs/notes/*:refs/notes/*
+[notes]
+	displayRef = refs/notes/*
 [pull]
 	rebase = false
 [init]

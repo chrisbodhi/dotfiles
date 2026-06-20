@@ -72,6 +72,7 @@
               "mas" # Mac App Store CLI: mas search Xcode for finding the App Store IDs used below
               "pi-coding-agent"
               "powerlevel10k" # Broken in Nix?
+              "quarkdown-labs/quarkdown/quarkdown"
               "yt-dlp"
             ];
             # Add strings to the list to install Casks (GUI apps)

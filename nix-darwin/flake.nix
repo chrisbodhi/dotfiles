@@ -48,9 +48,11 @@
             pkgs.pyenv
             pkgs.raycast
             pkgs.ripgrep
+            pkgs.sd
             pkgs.tldr
             pkgs.tmux
             pkgs.tree
+            pkgs.watchexec
             pkgs.xbar
             pkgs.zola
             pkgs.zsh-autosuggestions
@@ -68,6 +70,7 @@
               # "emacs-mac --with-modules"
               "ffmpeg"
               "mas" # Mac App Store CLI: mas search Xcode for finding the App Store IDs used below
+              "pi-coding-agent"
               "powerlevel10k" # Broken in Nix?
               "yt-dlp"
             ];

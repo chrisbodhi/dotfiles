@@ -37,3 +37,7 @@ darwin-rebuild switch --flake ~/.config/nix-darwin#max
 ```
 
 Note: You can selectively update flake inputs (like `nixpkgs`, `nix-darwin`, or `nix-homebrew`), but you cannot update individual packages within nixpkgs. Updating `nixpkgs` will update all packages in `environment.systemPackages`.
+
+## Known issues
+
+Currently, `mas` is not working with `nix-darwin`. As such, the programs that be installed by `mas` are all commented out. This allows for the rest of the rebuild and apply to run.

@@ -47,3 +47,9 @@ export PATH=~/.npm-global/bin:$PATH
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
+
+# fnm
+FNM_PATH="/opt/homebrew/opt/fnm/bin"
+if [ -d "$FNM_PATH" ]; then
+  eval "$(fnm env --shell zsh)"
+fi

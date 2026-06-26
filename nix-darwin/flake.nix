@@ -29,7 +29,6 @@
             pkgs.bat
             pkgs.coreutils
             pkgs.diff-so-fancy
-            pkgs.discord
             pkgs.eza
             pkgs.fastfetch
             pkgs.fd
@@ -80,6 +79,7 @@
               "backblaze"
               "chatgpt"
               "claude"
+              "discord"
               "font-zed-mono-nerd-font"
               "handbrake-app" # nix pkg is broken
               "lm-studio" # nix pkg is broken

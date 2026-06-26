@@ -32,6 +32,7 @@
             pkgs.eza
             pkgs.fastfetch
             pkgs.fd
+            pkgs.fnm
             pkgs.fzf
             pkgs.gh
             pkgs.jq

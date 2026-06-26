@@ -43,6 +43,7 @@
             pkgs.nodejs_22
             pkgs.obsidian
             pkgs.ollama
+            pkgs.platformio
             pkgs.procs
             pkgs.pyenv
             pkgs.raycast

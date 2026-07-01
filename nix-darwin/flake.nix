@@ -37,6 +37,7 @@
             pkgs.gh
             pkgs.jq
             pkgs.libdvdcss
+            pkgs.lua5
             pkgs.meslo-lgs-nf
             pkgs.mkalias
             pkgs.nil # to get the nix daemon working for Zed's nix support

@@ -37,7 +37,7 @@
             pkgs.gh
             pkgs.jq
             pkgs.libdvdcss
-            pkgs.lua5
+            pkgs.lua
             pkgs.meslo-lgs-nf
             pkgs.mkalias
             pkgs.nil # to get the nix daemon working for Zed's nix support
@@ -85,17 +85,20 @@
               "discord"
               "font-zed-mono-nerd-font"
               "handbrake-app" # nix pkg is broken
+              "kicad"
               "lm-studio" # nix pkg is broken
               "zed" # nix pkg is broken
             ];
             # For Mac App Store installations
+            # Breaking change to mas hasn't been pulled into
+            # nix-darwin, so these install attempts fail.
             masApps = {
-              "Amazon Kindle" = 302584613;
-              "Elmedia Video Player" = 1044549675;
-              "Tailscale" = 1475387142;
-              "ToyViewer" = 414298354;
-              "UTC Time" = 1538245904;
-              "Xcode" = 497799835;
+              # "Amazon Kindle" = 302584613;
+              # "Elmedia Video Player" = 1044549675;
+              # "Tailscale" = 1475387142;
+              # "ToyViewer" = 414298354;
+              # "UTC Time" = 1538245904;
+              # "Xcode" = 497799835;
             };
             # taps = {
             # "railwaycat/homebrew-emacsmacport" = "emacs-mac";

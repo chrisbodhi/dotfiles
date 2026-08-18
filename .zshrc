@@ -46,6 +46,11 @@ export PATH="$PATH:/Users/b/.lmstudio/bin"
 export PATH=~/.npm-global/bin:$PATH
 export PATH="$HOME/.local/bin:$PATH"
 
+EMACS_PATH="$HOME/.config/emacs/bin"
+if [ -d "$EMACS_PATH" ]; then
+    export PATH="$EMACS_PATH:$PATH"
+fi
+
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 

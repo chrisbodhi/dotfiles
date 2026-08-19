@@ -24,7 +24,6 @@
 (package! sparql-mode)
 (package! super-save)
 (package! vterm)
-(package! wakatime-mode)
 (package! writeroom-mode)
 (package! zetteldeft)
 
@@ -47,20 +46,6 @@
   (:host github
    :repo "zzkt/oblique-strategies"
    :branch "endless"))
-
-(package! org-fc :recipe
-  (:type git
-   :repo "https://git.sr.ht/~l3kn/org-fc"
-   :files (:defaults "awk")))
-
-(package! ttl-mode :recipe
-  (:host github
-   :repo "jeeger/ttl-mode"))
-
-(package! unison-mode :recipe
-  (:host github
-   :repo "dariooddenino/unison-mode-emacs"
-   :branch "master"))
 
 (package! wwg :recipe
   (:host github

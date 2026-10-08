@@ -16,3 +16,11 @@ git_current_branch () {
 gh_browse () {
 	gh browse -b $(git_current_branch)
 }
+
+# Unlock Bitwarden and cache the session for mbsync/msmtp/mu4e's bw-mail-pass
+bw-unlock () {
+	export BW_SESSION=$(bw unlock --raw)
+	mkdir -p ~/.cache
+	echo "$BW_SESSION" > ~/.cache/bw-session
+	chmod 600 ~/.cache/bw-session
+}

@@ -26,20 +26,27 @@
           # $ nix-env -qaP | grep wget
           # Or check online: https://search.nixos.org
           environment.systemPackages = [
+            (pkgs.aspellWithDicts (dicts: with dicts; [ en ])) # spellcheck backend for Doom's :checkers spell
             pkgs.bat
+            pkgs.bitwarden-cli
             pkgs.coreutils
             pkgs.diff-so-fancy
+            pkgs.emacs30-macport # Mac port (jdtsmith fork), native-comp on by default
             pkgs.eza
             pkgs.fastfetch
             pkgs.fd
             pkgs.fnm
             pkgs.fzf
             pkgs.gh
+            pkgs.isync # mbsync, for mu4e mail sync
             pkgs.jq
+            pkgs.ledger
             pkgs.libdvdcss
             pkgs.lua
             pkgs.meslo-lgs-nf
             pkgs.mkalias
+            pkgs.msmtp # SMTP forwarder, for sending mail from mu4e
+            pkgs.mpv
             pkgs.nil # to get the nix daemon working for Zed's nix support
             pkgs.nixd # to get the nix daemon working for Zed's nix support
             pkgs.nodejs_22
@@ -51,6 +58,7 @@
             pkgs.raycast
             pkgs.ripgrep
             pkgs.sd
+            pkgs.sshpass # TODO confirm
             pkgs.tldr
             pkgs.tmux
             pkgs.tree
@@ -64,14 +72,15 @@
           fonts.packages = [
             pkgs.fira
             pkgs.go-font
+            pkgs.symbola # Emacs' recommended unicode fallback font (doom doctor)
           ];
 
           homebrew = {
             enable = true;
             brews = [
-              # "emacs-mac --with-modules"
               "ffmpeg"
               "mas" # Mac App Store CLI: mas search Xcode for finding the App Store IDs used below
+              "mu" # mu4e mail indexer; Homebrew's build ships mu4e.el, nixpkgs' doesn't
               "pi-coding-agent"
               "powerlevel10k" # Broken in Nix?
               "quarkdown-labs/quarkdown/quarkdown"
@@ -94,19 +103,21 @@
             # nix-darwin, so these install attempts fail.
             masApps = {
               # "Amazon Kindle" = 302584613;
+              # "Bitwarden" = 1352778147; # 2026.7.0
               # "Elmedia Video Player" = 1044549675;
               # "Tailscale" = 1475387142;
               # "ToyViewer" = 414298354;
               # "UTC Time" = 1538245904;
               # "Xcode" = 497799835;
             };
-            # taps = {
-            # "railwaycat/homebrew-emacsmacport" = "emacs-mac";
-            # builtins.attrNames = config.nix-homebrew.taps;
-            # };
             # onActivation.cleanup = "zap";
-            onActivation.autoUpdate = true;
-            onActivation.upgrade = true;
+            # TEMPORARILY off: the nix-homebrew-pinned Homebrew (6.0.1) is too
+            # old for current bottles (missing install steps set_permissions /
+            # configure_clang_system), so `brew upgrade` crashes. Re-enable
+            # after bumping the nix-homebrew/brew-src flake input and cleaning
+            # up the accumulated duplicate kegs (`brew cleanup`).
+            onActivation.autoUpdate = false;
+            onActivation.upgrade = false;
           };
 
           system.primaryUser = "b";
